@@ -1,13 +1,14 @@
 from django.db import models
+from django.conf import settings
 
 class Property(models.Model):
-    title = models.CharField(maxlength=100)
+    title = models.CharField(max_length=100)
     description = models.TextField()
-    address = models.CharField(maxlength=200)
-    contact_1 = models.CharField(maxlength=10)
-    contact_2 = models.CharField(maxlength=10)
+    address = models.CharField(max_length=200)
+    contact_1 = models.CharField(max_length=10)
+    contact_2 = models.CharField(max_length=10)
 
-    owner = models.ForeignKey(setting.AUTH_USER_MODEL, ondelete=models.CASCADE)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
