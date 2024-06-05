@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     #our apps
 
-    'landlord.apps.LandlordConfig',
+    'listings.apps.ListingsConfig',
 ]
 
 MIDDLEWARE = [
