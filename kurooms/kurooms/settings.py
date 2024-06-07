@@ -39,9 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #our apps
-
     'listings.apps.ListingsConfig',
+
+    #extentions
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
+
+# When we get to crispy forms :)
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
