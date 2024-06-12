@@ -1,0 +1,29 @@
+{% extends "base_bootstrap.html" %}
+{% block content %}
+<h1>Accomodations</h1>
+<p>
+{% if property_list %}
+<ul>
+  {% for property in property_list %}
+    <li>
+        <a href="{% url 'listings:all' %}">{{ property.title }}</a>
+        {% if property.owner == user %}
+        (<a href="{% url 'listings:update' property.id %}">Edit</a> |
+        <a href="{% url 'listings:delete' property.id %}">Delete</a>)
+        {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+{% else %}
+  <p>There are no properties in the database.</p>
+{% endif %}
+</p>
+<p>
+<a href="{% url 'listings:create' %}">Add an Accomodation</a> |
+{% if user.is_authenticated %}
+<a href="{% url 'logout' %}?next={% url 'listings:all' %}">Logout</a>
+{% else %}
+<a href="{% url 'login' %}?next={% url 'listings:all' %}">Login</a>
+{% endif %}
+</p>
+{% endblock %}
