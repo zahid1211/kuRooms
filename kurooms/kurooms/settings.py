@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     #our apps
     'listings.apps.ListingsConfig',
+    'home.apps.HomeConfig',
 
     #extentions
     'crispy_forms',
