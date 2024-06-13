@@ -6,12 +6,21 @@
 <ul>
   {% for property in property_list %}
     <li>
-        <a href="{% url 'listings:all' %}">{{ property.title }}</a>
-        {% if property.owner == user %}
-        (<a href="{% url 'listings:update' property.id %}">Edit</a> |
-        <a href="{% url 'listings:delete' property.id %}">Delete</a>)
-        {% endif %}
+
+	<ul>
+		<li> {{ property.title }} </li>
+		<li> {{ property.address }} </li>
+		<li> {{ property.contact_1 }} </li>
+
+                <li>   {% if property.owner == user %}
+                           (<a href="{% url 'listings:update' property.id %}">Edit</a> |
+                           <a href="{% url 'listings:delete' property.id %}">Delete</a>)
+                       {% endif %} 
+                 </li>
+        </ul>
+        
     </li>
+    <p></p>
   {% endfor %}
 </ul>
 {% else %}
